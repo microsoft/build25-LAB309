@@ -1,6 +1,7 @@
 # Build 2025 LAB309
 
 This repo is to describe and organize the materials for LAB309.
+[Microsoft Build catalog listing](https://build.microsoft.com/en-US/sessions/LAB309)
 
 ## Integrating AI in Apps with GitHub Copilot & Azure Developer CLI 
 
@@ -25,7 +26,7 @@ In this Lab, learners will be able to:
 
 ## Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
 
