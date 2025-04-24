@@ -22,7 +22,9 @@ In this Lab, learners will be able to:
 - Then add AI functionality to the application code to implement the AI feature 
 - Redeploy app with new features 
 - Configure monitoring and diagnostic tools to fix the app  
-- Work with the GitHub Copilot for Azure for cost optimization 
+- Work with the GitHub Copilot for Azure for cost optimization
+
+[Skillable VM image](https://labondemand.com/LabProfile/185838)
 
 ## Contributing
 
