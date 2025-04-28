@@ -10,6 +10,7 @@
     - Azure Developer CLI (azd)
     - Bicep
     - **Azure Tools extension pack**
+    - **Python**
 - Azure Developer CLI (azd) (`winget install Microsoft.Azd --version 1.13.300` - bug in 1.14)
 - **Azure CLI (az) (`winget install Microsoft.AzureCLI`)**
 - Python3 (and create venv) (`winget install Python.Python.3.12` unless there a different version is needed)
