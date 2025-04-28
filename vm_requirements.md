@@ -13,7 +13,9 @@
 - Python3 (and create venv)
 
 ### Each participant needs access to:
-- Azure account
+- An active Azure account
+- Owner or Contributor access to the Azure subscription
+- Permission to create and Azure AI Foundry project (to add AI Search and AI Models)
 - AI quota
 - GitHub Copilot license
 
