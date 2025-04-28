@@ -4,6 +4,7 @@
 ### This is a list of dependencies that must be installed on the Lab VMs:
 
 - Git
+- Docker Desktop
 - VS Code
 - VS Code extensions
     - GitHub Copilot for Azure
