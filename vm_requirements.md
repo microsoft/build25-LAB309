@@ -10,3 +10,5 @@ This is a list of dependencies that must be installed on the Lab VMs:
     - Azure Developer CLI (azd)
     - Bicep
 - Azure Developer CLI (azd)
+
+[Skillable VM Image](https://labondemand.com/LabProfile/185838)
