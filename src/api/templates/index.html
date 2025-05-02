@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure AI Search Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #0078d4;
+            border-bottom: 2px solid #0078d4;
+            padding-bottom: 10px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .container {
+            display: flex;
+            gap: 20px;    position: relative;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            background-color: #ccc;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #0078d4;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #005a9e;
+        }
+        .search-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .result-card {
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        .hotel-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #0078d4;
+        }
+        .description {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .tag {
+            background-color: #e0f2fe;
+            color: #0078d4;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #0078d4;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        #results {
+            margin-top: 20px;
+        }
+        .loading {
+            display: none;
+            color: #0078d4;
+            margin-top: 10px;
+        }
+        .message {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+        .recommendations {
+            margin-top: 20px;
+        }
+        .recommendation-result {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #0078d4;
+        }
+        .recommendation-text {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .recommendation-meta {
+            color: #666;
+            font-style: italic;
+        }
+        .bullet {
+            color: #0078d4;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        #recommendLoading {
+            display: none;
+            color: #0078d4;
+            margin-top: 10px;
+        }
+        
+        /* Header and dropdown styles */
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 5px 10px;
+            color: #0078d4;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 350px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        
+        .dropdown-content.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Generative search (RAG) using grounding data from Azure AI Search</h1>
+        <div class="dropdown">
+            <button class="dropdown-btn" id="settingsBtn">⋮</button>
+            <div class="dropdown-content" id="settingsDropdown">
+                <div class="toggle-container">
+                    <span>Use Foundry connection and model:</span>
+                    <label class="toggle">
+                        <!-- To default to direct connection and OpenAI model, remove 'checked' attribute below -->
+                        <input type="checkbox" id="hubToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="column">
+            <div class="card">
+                <h2>Index Management</h2>
+                <div>One-time setup: required before you can search or get recommendations.</div>
+                <div style="margin-bottom: 20px;"></div>
+                <div class="actions">
+                    <div>Step 1: Create an index</div>
+                    <button id="createIndexBtn">Create Index</button>
+                    <div>Step 2: Upload built-in hotels-sample-index.</div>
+                    <button id="uploadDocumentsBtn">Upload Documents</button>
+                </div>
+                <div class="loading" id="indexLoading">Loading...</div>
+                <div id="indexStatus" class="message"></div>
+            </div>
+
+            <div class="card">
+                <h2>Search</h2>
+                <div class="search-container">
+                    <input type="text" id="searchQuery" placeholder="Enter search query or leave empty for all results">
+                    <button id="searchBtn">Search</button>
+                </div>
+                <div class="loading" id="loading">Loading results...</div>
+                <div id="results"></div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <h2>AI Hotel Recommendations</h2>
+                <div class="toggle-container">
+                    <span>Use grounding with AI Search:</span>
+                    <label class="toggle">
+                        <input type="checkbox" id="searchToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="recommendQuery" placeholder="E.g., hotels with pool or complimentary breakfast" value="Can you recommend a hotel with breakfast?">
+                    <button id="recommendBtn">Get Recommendations</button>
+                </div>
+                <div class="loading" id="recommendLoading">Generating recommendations...</div>
+                <div id="recommendations" class="recommendations"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hubToggle = document.getElementById('hubToggle');
+            const createIndexBtn = document.getElementById('createIndexBtn');
+            const uploadDocumentsBtn = document.getElementById('uploadDocumentsBtn');
+            const searchBtn = document.getElementById('searchBtn');
+            const searchQuery = document.getElementById('searchQuery');
+            const resultsContainer = document.getElementById('results');
+            const indexStatus = document.getElementById('indexStatus');
+            const loading = document.getElementById('loading');
+            const indexLoading = document.getElementById('indexLoading');
+            
+            // New recommendation elements
+            const recommendBtn = document.getElementById('recommendBtn');
+            const recommendQuery = document.getElementById('recommendQuery');
+            const recommendationsContainer = document.getElementById('recommendations');
+            const recommendLoading = document.getElementById('recommendLoading');
+            const searchToggle = document.getElementById('searchToggle');
+
+            // Create index button click handler
+            createIndexBtn.addEventListener('click', function() {
+                showIndexLoading(true);
+                clearStatus();
+                
+                fetch(`/api/create_index?hub=${hubToggle.checked}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.index) {
+                            showStatus(`Index "${data.index}" created successfully!`, 'success');
+                        } else {
+                            showStatus(`Index creation failed: ${data.message || ''}`, 'error');
+                        }
+                    })
+                    .catch(error => {
+                        showStatus('Error creating index: ' + error, 'error');
+                    })
+                    .finally(() => {
+                        showIndexLoading(false);
+                    });
+            });
+
+            // Upload documents button click handler
+            uploadDocumentsBtn.addEventListener('click', function() {
+                showIndexLoading(true);
+                clearStatus();
+                
+                fetch(`/api/upload_documents?hub=${hubToggle.checked}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.result) {
+                            showStatus(`Documents uploaded successfully!`, 'success');
+                        } else {
+                            showStatus(`Document upload failed: ${data.message || ''}`, 'error');
+                        }
+                    })
+                    .catch(error => {
+                        showStatus('Error uploading documents: ' + error, 'error');
+                    })
+                    .finally(() => {
+                        showIndexLoading(false);
+                    });
+            });
+
+            // Search button click handler
+            searchBtn.addEventListener('click', function() {
+                performSearch();
+            });
+
+            // Allow search on Enter key press
+            searchQuery.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            function performSearch() {
+                showLoading(true);
+                resultsContainer.innerHTML = '';
+                
+                const query = searchQuery.value.trim();
+                const endpoint = query === '' ? '/api/empty_query' : '/api/search';
+                const url = `${endpoint}?hub=${hubToggle.checked}${query !== '' ? '&query=' + encodeURIComponent(query) : ''}`;
+                
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        displayResults(data);
+                    })
+                    .catch(error => {
+                        resultsContainer.innerHTML = `<div class="message error">Error performing search: ${error}</div>`;
+                    })
+                    .finally(() => {
+                        showLoading(false);
+                    });
+            }
+
+            function displayResults(data) {
+                if (data.error) {
+                    resultsContainer.innerHTML = `<div class="message error">${data.error}: ${data.message || ''}</div>`;
+                    return;
+                }
+                
+                if (!data.results || data.results.length === 0) {
+                    resultsContainer.innerHTML = '<p>No results found</p>';
+                    return;
+                }
+
+                let html = `<p>Found ${data.total_count} result(s):</p>`;
+                
+                data.results.forEach(result => {
+                    let tagsHtml = '';
+                    if (result.tags && result.tags.length > 0) {
+                        tagsHtml = '<div class="tags">';
+                        result.tags.forEach(tag => {
+                            tagsHtml += `<span class="tag">${tag}</span>`;
+                        });
+                        tagsHtml += '</div>';
+                    }
+                    
+                    html += `
+                        <div class="result-card">
+                            <div class="hotel-name">${result.hotel_name}</div>
+                            <div class="description">${result.description}</div>
+                            ${tagsHtml}
+                            <small>Score: ${result.score}</small>
+                        </div>
+                    `;
+                });
+                
+                resultsContainer.innerHTML = html;
+            }
+
+            // Recommendation button click handler
+            recommendBtn.addEventListener('click', function() {
+                getRecommendations();
+            });
+
+            // Allow recommendation on Enter key press
+            recommendQuery.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    getRecommendations();
+                }
+            });
+
+            function getRecommendations() {
+                const query = recommendQuery.value.trim();
+                if (!query) {
+                    recommendationsContainer.innerHTML = '<div class="message error">Please enter a recommendation query</div>';
+                    return;
+                }
+                
+                recommendLoading.style.display = 'block';
+                recommendationsContainer.innerHTML = '';
+                
+                const useSearch = searchToggle.checked;
+                fetch(`/api/recommend?hub=${hubToggle.checked}&search=${useSearch}&query=${encodeURIComponent(query)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            recommendationsContainer.innerHTML = `<div class="message error">${data.error}: ${data.message || ''}</div>`;
+                        } else {
+                            // Format the recommendation text to preserve line breaks and bullet points
+                            const formattedText = data.recommendation
+                                .replace(/\n/g, '<br>')
+                                .replace(/•/g, '<span class="bullet">•</span>');
+                                
+                            recommendationsContainer.innerHTML = `
+                                <div class="recommendation-result">
+                                    <div class="recommendation-text">${formattedText}</div>
+                                    <div class="recommendation-meta">
+                                        <small>Based on ${data.sources_count} hotels</small>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    })
+                    .catch(error => {
+                        recommendationsContainer.innerHTML = `<div class="message error">Error getting recommendations: ${error}</div>`;
+                    })
+                    .finally(() => {
+                        recommendLoading.style.display = 'none';
+                    });
+            }
+
+            function showLoading(show) {
+                loading.style.display = show ? 'block' : 'none';
+            }
+            
+            function showIndexLoading(show) {
+                indexLoading.style.display = show ? 'block' : 'none';
+            }
+
+            function showStatus(message, type) {
+                indexStatus.textContent = message;
+                indexStatus.className = 'message ' + type;
+            }
+
+            function clearStatus() {
+                indexStatus.textContent = '';
+                indexStatus.className = 'message';
+            }
+
+            // Add dropdown toggle functionality
+            const settingsBtn = document.getElementById('settingsBtn');
+            const settingsDropdown = document.getElementById('settingsDropdown');
+            
+            settingsBtn.addEventListener('click', function() {
+                settingsDropdown.classList.toggle('show');
+            });
+            
+            // Close the dropdown when clicking outside
+            window.addEventListener('click', function(event) {
+                if (!event.target.matches('.dropdown-btn') && !settingsDropdown.contains(event.target)) {
+                    if (settingsDropdown.classList.contains('show')) {
+                        settingsDropdown.classList.remove('show');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

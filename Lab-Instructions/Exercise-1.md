@@ -9,7 +9,6 @@ Repo setup
 - Clone the repository from the TODO branch to keep track of your changes if you have a GitHub account. 
 - Open your repo in VS Code.
 
-
 Initialize the project with `azd init` to make it ready to work with Azure (via IaC).  
 
-Deploy to Azure with `azd up` and see it live. 
+Deploy to Azure with `azd up` and see it live.
