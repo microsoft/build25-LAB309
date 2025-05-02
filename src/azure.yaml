@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/alpha/azure.yaml.json
+
+name: aidemo
+metadata:
+  template: azd-init@1.14.0
+services:
+  aidemo:
+    project: .
+    host: containerapp
+    language: python
+    docker:
+      path: Dockerfile
+resources:
+  aidemo:
+    type: host.containerapp
+    port: 5000
+    uses:
+      - search
+      - gpt-4o
+      - ai-project
+  search:
+    type: ai.search
+  gpt-4o:
+    type: ai.openai.model
+    model:
+      name: gpt-4o
+      version: "2024-08-06"
+  ai-project:
+    type: ai.project
+    models:
+      - name: gpt-4o-mini
+        version: "2024-07-18"
+        format: OpenAI
+        sku:
+          name: GlobalStandard
+          usageName: OpenAI.GlobalStandard.gpt-4o-mini
+          capacity: 10
