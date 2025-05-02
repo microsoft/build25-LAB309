@@ -13,3 +13,7 @@ Deploy to Azure with `azd up` and see it live.
 ## The code
 
 ## Running the application
+
+## Example usage
+
+## Lab challenges
