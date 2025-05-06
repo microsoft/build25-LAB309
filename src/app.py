@@ -20,7 +20,7 @@ from openai.lib.azure import AzureADTokenProvider
 
 app = Flask(__name__, 
     static_folder="static",
-    template_folder="api/templates")
+    template_folder="templates")
 
 scopes = "https://cognitiveservices.azure.com/.default"
 
@@ -34,7 +34,7 @@ openai_endpoint = os.environ.get('AZURE_OPENAI_ENDPOINT')
 project_connection_string=os.environ.get('AZURE_AI_PROJECT_CONNECTION_STRING')
 
 openai_model_name = "gpt-4o"
-foundry_model_name = "gpt-4o-mini"
+foundry_model_name = "Phi-4"
 index_name = "hotels-quickstart"
 
 # Load documents dynamically from the JSON file

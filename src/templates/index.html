@@ -235,6 +235,7 @@
             display: block;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.7/marked.min.js"></script>
 </head>
 <body>
     <div class="header-container">
@@ -319,6 +320,11 @@
             const recommendationsContainer = document.getElementById('recommendations');
             const recommendLoading = document.getElementById('recommendLoading');
             const searchToggle = document.getElementById('searchToggle');
+
+            marked.use({
+                breaks: true,
+                gfm: true,
+            });
 
             // Create index button click handler
             createIndexBtn.addEventListener('click', function() {
@@ -462,16 +468,14 @@
                         if (data.error) {
                             recommendationsContainer.innerHTML = `<div class="message error">${data.error}: ${data.message || ''}</div>`;
                         } else {
-                            // Format the recommendation text to preserve line breaks and bullet points
-                            const formattedText = data.recommendation
-                                .replace(/\n/g, '<br>')
-                                .replace(/•/g, '<span class="bullet">•</span>');
-                                
+                            const renderedRecommendation = marked.parse(data.recommendation);
                             recommendationsContainer.innerHTML = `
                                 <div class="recommendation-result">
-                                    <div class="recommendation-text">${formattedText}</div>
+                                    <div class="recommendation-text">
+                                        ${renderedRecommendation}
+                                    </div>
                                     <div class="recommendation-meta">
-                                        <small>Based on ${data.sources_count} hotels</small>
+                                        <small>Based on ${data.sources_count} hotel search results</small>
                                     </div>
                                 </div>
                             `;
