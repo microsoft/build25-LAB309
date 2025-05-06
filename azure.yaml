@@ -5,7 +5,7 @@ metadata:
   template: azd-init@1.14.0
 services:
   aidemo:
-    project: .
+    project: src
     host: containerapp
     language: python
     docker:
@@ -28,10 +28,10 @@ resources:
   ai-project:
     type: ai.project
     models:
-      - name: gpt-4o-mini
-        version: "2024-07-18"
-        format: OpenAI
+      - name: Phi-4
+        version: "7"
+        format: Microsoft
         sku:
           name: GlobalStandard
-          usageName: OpenAI.GlobalStandard.gpt-4o-mini
-          capacity: 10
+          usageName: AIServices.GlobalStandard.MaaS
+          capacity: 1
