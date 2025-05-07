@@ -38,3 +38,6 @@ The Chat GPT-4o model is integrated with Azure's capabilities, providing scalabi
 ## Step 4: Add grounding data
 
 ## Step 5: Redeploy
+
+## Next
+[Exercise 4](/Lab-Instructions/Exercise-4.md)

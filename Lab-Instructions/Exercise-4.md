@@ -3,3 +3,6 @@
 Configure monitoring and diagnostic tools to fix the app.
 
 Work with the GitHub Copilot for Azure for cost optimization.
+
+## Congratulations!
+You are now azd super hero!
