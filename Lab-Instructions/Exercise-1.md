@@ -41,8 +41,11 @@ Time to complete: 10 minutes.
 * azd Compose uses Bicep. All IaC files are generated in memory. To get the Bicep code:
     * run `azd config set alpha.infrasynth on` to enable the feature (infrasynth is also an alpha feature.)
     * run `azd infra synth` to get the /infra folder and all Bicep files generated under /infra.
-* azd Compose uses [Azure Verified Module (AVM)](https://aka.ms/AVM). With Bicep VS Code extension, you can mouse-over e.g.,  hit F12 to learn more about the AVM module azd is referencing.
-![Mouse over module name](/Lab-Instructions/Images/1.mouse-over-avm.png)
+* azd Compose uses [Azure Verified Module (AVM)](https://aka.ms/AVM). With Bicep VS Code extension, you can mouse-over a module
+
+    ![Mouse over module name](/Lab-Instructions/Images/1.mouse-over-avm.png)
+    
+    or hit F12 to learn more about the AVM module azd is referencing.
 * Or, you can just ask GitHub Copilot to find the answer for you!
 
 ## Next
