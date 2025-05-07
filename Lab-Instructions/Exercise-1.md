@@ -2,15 +2,15 @@
 
 In this lab module, you learn about working with the Azure Developer CLI (azd), Infrastruture as Code (IaC), and preparing to add AI features to your sample hotel search app.
 
-## Working with the Azure Developer CLI (azd)
-
-[Azure Developer CLI (azd)](https://aka.ms/azd) is an open-source command line tool that provides higher-level, developer-friendly commands that can help you build, deploy, and manage your application on Azure. 
-
 ## Module overview
 
 You ran the Python app locally in [Getting Started](getting-started.md). In this module, you are going to run `azd init` and `azd up` to deploy the app to Azure Container App (ACA.)
 
 Time to complete: 10 minutes.
+
+## Working with the Azure Developer CLI (azd)
+
+[Azure Developer CLI (azd)](https://aka.ms/azd) is an open-source command line tool that provides higher-level, developer-friendly commands that can help you build, deploy, and manage your application on Azure. 
 
 ## Instructions
 1. In a VS Code terminal, make sure you are in the **/src** directory. 
@@ -31,7 +31,29 @@ Time to complete: 10 minutes.
 
     ![azd up](/Lab-Instructions/Images/1.azd-up-done.png)
 
-    
+## The Code
+
+At this point, your azure.yaml should look like this:
+
+``` yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/alpha/azure.yaml.json
+
+name: src
+metadata:
+    template: azd-init@xxxx
+services:
+    src:
+        project: .
+        host: containerapp
+        language: python
+        docker:
+            path: Dockerfile
+resources:
+    src:
+        type: host.containerapp
+        port: 5000
+```
+
 ## Lab challenges
 
 1. Can you tell us if zone redundancy is enabled for the Azure Container app?
