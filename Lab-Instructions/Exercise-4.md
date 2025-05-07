@@ -12,5 +12,13 @@ Ask @azure agent "Help me set up monitoring on my application."
 
 ## Explore monitoring data
 
+## Review
+
+[TODO: Summarize key concepts and steps here]
+
+## Practice
+
+## Bonus challenge
+
 ## Congratulations!
 You are now azd super hero.
