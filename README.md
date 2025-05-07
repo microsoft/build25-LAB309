@@ -1,3 +1,7 @@
+<p align="center">
+<img src="img/banner.jpg" alt="decorative banner" width="1200"/>
+</p>
+
 # Build 2025 LAB309
 
 This repo is to describe and organize the materials for LAB309.
@@ -25,6 +29,13 @@ In this Lab, learners will be able to:
 - Work with the GitHub Copilot for Azure for cost optimization
 
 [Skillable VM image](https://labondemand.com/LabProfile/185838)
+
+## Session Resources 
+The material in this repo was presented at Microsoft Build 2025 under the session title Integrating AI in Apps with GitHub Copilot & Azure Developer CLI. Please access these links for the session materials, recording, and Learn resources.
+
+| Resources          | Links                             | Description        |
+|:-------------------|:----------------------------------|:-------------------|
+| Build session page | https://build.microsoft.com/sessions/LAB309 | Event session page with downloadable recording, slides, resources, and speaker bio |
 
 ## Contributing
 
