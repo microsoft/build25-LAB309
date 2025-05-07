@@ -36,7 +36,6 @@ The material in this repo was presented at Microsoft Build 2025 under the sessio
 | Resources          | Links                             | Description        |
 |:-------------------|:----------------------------------|:-------------------|
 | Build session page | https://build.microsoft.com/sessions/LAB309 | Event session page with downloadable recording, slides, resources, and speaker bio |
-| Session recording on YouTube | https://aka.ms/build2025/video/LAB309 | YouTube page with session recoding and speaker-moderated chat |
 
 ## Contributing
 
