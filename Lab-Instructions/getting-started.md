@@ -15,6 +15,12 @@ We assume you know the basics of creating and editing files in Visual Studio Cod
 ## Authenticate with Azure
 Navigate to **Resources** in your Skillable VM to locate the user id and password for logging into your Azure account. 
 
+## Get the latest Azure Developer CLI (azd) build
+
+```powershell
+winget upgrade microsoft.azd
+```
+
 ## Get started with the repo
 [TODO]
 
