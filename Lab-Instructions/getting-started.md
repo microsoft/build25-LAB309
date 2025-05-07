@@ -26,22 +26,40 @@ winget upgrade microsoft.azd
 
 1. From the terminal
 
-```powershell
-# Clone the repository
-git clone https://github.com/microsoft/build25-LAB309.git
-# Change to the cloned repo directory
-cd build25-LAB309
-# Change to the src directory
-cd src
-# Create virtual environment
-python -m venv .venv
-# Activate virtual environment
-.\.venv\Scripts\Activate.ps1
-# Install required Python packages
-pip install -r requirements.txt
-```
-[TODO] - CHECK THE .VENV PATH IN THE VM
+    - Get the LAB content
+    ```powershell
+    # Clone the repository
+    git clone https://github.com/microsoft/build25-LAB309.git
+    # Change to the cloned repo directory
+    cd build25-LAB309
+    # Open in VS Code
+    code .
+    ```
 
-2. From /azure [TODO]
+2. In VS Code
 
-3. Open in VS Code
+    - Open a new Termnial
+
+    ```powershell
+    # Change to the src directory
+    cd src
+    # Create virtual environment
+    python -m venv .venv
+    # Activate virtual environment
+    .\.venv\Scripts\Activate.ps1
+    # Install required Python packages
+    pip install -r requirements.txt
+    # Run the app
+    python app.py
+    ```
+    Congratulation! You now have your app running locally. None of the button woroks. That's expected.
+
+    ![Screenshot](/Lab-Instructions/Images/app-image.png)
+
+    You are now ready to start. 
+
+3. Complete each exercise:
+   - [Exercise 1](/Lab-Instructions/Exercise-1.md)
+   - [Exercise 2](/Lab-Instructions/Exercise-2.md)
+   - [Exercise 3](/Lab-Instructions/Exercise-3.md)
+   - [Exercise 4](/Lab-Instructions/Exercise-4.md) 

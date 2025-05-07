@@ -17,3 +17,7 @@ Deploy to Azure with `azd up` and see it live.
 ## Example usage
 
 ## Lab challenges
+
+## Next
+[Exercise 2](/Lab-Instructions/Exercise-2.md)
+ 
