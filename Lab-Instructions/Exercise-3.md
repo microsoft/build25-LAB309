@@ -123,6 +123,9 @@ Can you use `azd add` and try and see how using a different model affect chat re
 * app.py has hardcoded the model to be Phi-4 for Foundary model so make sure you select Phi-4
 * Select AIServices for deployment kind.
 * Select 7 for version.
-  
+
+If you successfully add a Foundry model, you can compare and see the difference!
+![Comparison of models](/Lab-Instructions/Images/3.Comparision.png)
+
 ## Next
 [Exercise 4](/Lab-Instructions/Exercise-4.md)
