@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/alpha/azure.yaml.json
+name: src
+metadata:
+  template: azd-init@1.15.0-pr.4831306
+services:
+  src:
+    project: .
+    host: containerapp
+    language: python
+    docker:
+      path: Dockerfile
+resources:
+  src:
+    type: host.containerapp
+    port: 5000
+    uses:
+      - search
+      - gpt-4o
+      - ai-project
+  search:
+    type: ai.search
+  gpt-4o:
+    type: ai.openai.model
+    model:
+      name: gpt-4o
+      version: "2024-11-20"
+  ai-project:
+    type: ai.project
+    models:
+      - name: Phi-4
+        version: "7"
+        format: Microsoft
+        sku:
+          name: GlobalStandard
+          usageName: AIServices.GlobalStandard.MaaS
+          capacity: 1
