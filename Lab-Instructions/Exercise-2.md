@@ -47,6 +47,9 @@ What happened and why did this work?
     search_endpoint = os.environ.get('AZURE_AI_SEARCH_ENDPOINT')
     ```
 
+### Deploy to Azure
+Since you didn't change any of the app code, you do not need to run `azd deploy`. If you visit your service endpoint, you will see that clicking search returns all 4 hotels just like the app did when running locally.
+
 ## The Code
 
 At this point, your azure.yaml should look like this:
@@ -75,7 +78,7 @@ resources:
 
 ## Lab challenges
 
-1. Can you add another hotel to the built-in sample data?
+1. Can you add another hotel to the built-in sample data; deploy the app to Azure and upload document using the app running in Azure?  
 
 **Hints**: 
 * Perhaps ask your copilot where the **Upload Documents** button is getting the sample data?
