@@ -23,7 +23,8 @@ Time to complete: 15 minutes.
     * Make sure your service uses the newly added resource by typing <space> to select.
     ![Connect service to searach](/Lab-Instructions/Images/2.ConnectServicetoSearch.png)
     * Type "Y" or simply hit <enter> to accept changes to azure.yaml    
-1. Run azd provision to provision the newly added resource. **Note**: if you have run `azd infra synth`, delete the **infra** folder or run `azd infra synth` again to re-sythesize the infrastructure before running `azd provision`.
+1. If the **infra** folder exists, run azd provision to provision the newly added resource. **Note**: you see this because have run `azd infra synth`, delete the **infra** folder and then run `azd provision` or run `azd infra synth` again to re-sythesize the infrastructure before running `azd provision`.
+1. Otherwise, select either Yes to provision the changes.
 
 ## Running the app and redeploy to Azure
 
