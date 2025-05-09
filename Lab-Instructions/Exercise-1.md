@@ -1,7 +1,7 @@
 # Exercise 1: Get started with AI app development
 
-> [!Goal]
-> Deploy your application to Azure.
+> [!Note]
+> Goal: Deploy your application to Azure.
 
 ## Module overview
 

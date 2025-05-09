@@ -1,7 +1,7 @@
 # Exercise 2: Add AI Search
 
-> [!Goal]
-> Add AI search functionality to your app, add data for the search, and redeploy.
+> [!Note]
+> Goal: Add AI search functionality to your app, add data for the search, and redeploy.
 
 ## Module overview
 

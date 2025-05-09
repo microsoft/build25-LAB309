@@ -1,7 +1,7 @@
 # Exercise 4: Configure monitoring and diagnostic tools
 
-> [!Goal]
-> Configure and optimize your application running on Auzre.
+> [!Note]
+> Goal: Configure and optimize your application running on Auzre.
 
 In this module, we'll configure monitoring and diagnostic tools and work with the GitHub Copilot for Azure for cost optimization.
 
