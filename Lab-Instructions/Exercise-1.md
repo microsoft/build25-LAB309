@@ -60,7 +60,11 @@ resources:
 
 1. Can you tell us if zone redundancy is enabled for the Azure Container app?
 1. In azure.yaml, can you explain how `azd` know to open port 5000 on the Azure Container App?
-1. Try using Copilot Chat in `Agent` mode and tell it you want to deploy this app to Azure using azd. 
+1. Try using Copilot Chat in `Agent` mode:
+    - Tell Copilot "I want to deploy the app in \src to Azure as a Container App using azd. Put the azure.yaml and the \infra folder in the \src directory. Always use the latest bicep schema." 
+    - Note: After each turn, you may need to click the `Keep` button so the files are written to disk.
+    - If Copilot wants you to manually run the azd commands to deploy the app, just tell it "why don't you deploy this for me".
+    - If you get an error in the terminal, paste it back into Copilot Chat to get some help.
 
 **Hints**: 
 * azd Compose uses Bicep. All IaC files are generated in memory. To get the Bicep code:
