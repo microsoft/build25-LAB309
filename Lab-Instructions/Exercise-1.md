@@ -12,7 +12,7 @@ Time to complete: 10 minutes
 
 [Azure Developer CLI (azd)](https://aka.ms/azd) is an open-source command line tool that provides high-level, developer-friendly commands that can help you build, deploy, and manage your application on Azure. 
 
-If you would like to learn more about azd, use the link above or use `ctrl+alt+i` to open Copilot Chat, select `Ask` mode and ask `@azure` your questions.
+If you would like to learn more about azd or the app in /src, use the link above or use `ctrl+alt+i` to open Copilot Chat, select `Ask` mode and ask `@azure` your questions.
 
 ## Instructions
 1. In a VS Code terminal, make sure you are in the **/src** directory. 
