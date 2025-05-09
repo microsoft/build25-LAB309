@@ -105,4 +105,4 @@ resources:
 * Perhaps ask your copilot where the **Upload Documents** button is getting the sample data?
 
 ## Next
-[Exercise 3](/Lab-Instructions/Exercise-3.md)
+Now that you've added AI Search to your application, head over to [Exercise 3](/Lab-Instructions/Exercise-3.md) to continue building your app and add AI Chat.

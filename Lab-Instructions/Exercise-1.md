@@ -84,5 +84,5 @@ resources:
 * Or, you can just ask GitHub Copilot to find the answer for you!
 
 ## Next
-[Exercise 2](/Lab-Instructions/Exercise-2.md)
+Now that you've got your application deployed to Azure, head over to [Exercise 2](/Lab-Instructions/Exercise-2.md) to coninue building your application and adding AI functionality.
  
