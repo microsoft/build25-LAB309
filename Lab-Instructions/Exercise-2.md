@@ -30,10 +30,25 @@ Time to complete: 15 minutes.
 
 1. Let's run the app locally to make sure everything is fine. Run `azd show search` to get the environment variable to set.
 1. Run 
+
+Set your search endpoint. You'll need to replace `your-search-service-name` in the URL with your search which you got when you ran `azd show search` to get the environment variable.
+
+PowerShell
     ```powershell
-    $env:AZURE_AI_SEARCH_ENDPOINT="https://XXX.search.windows.net"
+    $env:AZURE_AI_SEARCH_ENDPOINT="https://your-search-service-name.search.windows.net"
     ```
-    Replace XXX with your search service endpoint.
+
+Bash
+    ```bash
+    export AZURE_AI_SEARCH_ENDPOINT="https://your-search-service-name.search.windows.net"
+    ```
+If you set it correctly, you should get your endpoint to return with this command.
+
+    ```bash
+    echo $AZURE_AI_SEARCH_ENDPOINT
+    ```
+
+
 1. Run `python app.py`
 1. Click **Create Index** button to create an index
 1. Click **Upload Documents** to upload the sample hotel data.
