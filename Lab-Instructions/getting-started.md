@@ -53,7 +53,11 @@ In this lab, we will start by cloning the lab repository.
     # Run the app
     python app.py
     ```
-    Congratulation! You now have your app running locally. None of the button woroks. That's expected.
+    Congratulations! You now have your app running locally. 
+    
+    Note: None of the buttons work, but that's expected at this point. We're going to fix those in the exercises.
+
+    Press `ctrl+c` in the Terminal to stop the app.
 
     ![Screenshot](/Lab-Instructions/Images/app-image.png)
 
