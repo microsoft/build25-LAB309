@@ -1,8 +1,11 @@
 # Exercise 1: Get started with AI app development
 
-In this lab module, you learn about working with the Azure Developer CLI (azd), Infrastruture as Code (IaC), and preparing to add AI features to your sample hotel search app.
+> [!Goal]
+> Deploy your application to Azure.
 
 ## Module overview
+
+In this lab module, you learn about working with the Azure Developer CLI (azd), Infrastruture as Code (IaC), and preparing to add AI features to your sample hotel search app.
 
 You ran the Python app locally in [Getting Started](getting-started.md). In this module, you are going to run `azd init` and `azd up` to deploy the app to Azure Container Apps (ACA).
 
