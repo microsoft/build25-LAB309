@@ -8,7 +8,7 @@ In [Exercise-2](/Lab-Instructions/Exercise-2.md), you added Azure Search AI and 
 
 In this module, you are going to run `azd add` to add Azure Open AI so that you can learn how your chat result is affected when you add grouding data to chat.
 
-Time to complete: 25 minutes.
+Time to complete: 25 minutes
 
 ## Working with GitHub Copilot for Azure
 
@@ -48,22 +48,22 @@ The Chat GPT-4o model is integrated with Azure's capabilities, providing scalabi
 ```
 ## Instructions
 
-1. Make sure you are still in the **/src** folder
+1. Make sure you are still in the **/src** folder.
 1. Run `azd add`
-    * Select "AI".
-    * Select "Azure OpenAI model".
+    * Select "AI"
+    * Select "Azure OpenAI model"
     * Select "Chat (GPT)"
-    * Select "gpt-40     2024-11-20"
-    * Provide a name for this model; you can hit enter to select the default value.
+    * Select "gpt-40 2024-11-20"
+    * Provide a name for this model or you can hit enter to select the default value.
     * Make sure your service uses the newly added resource by typing <space> to select.
     ![Connect service to gpt-4o](/Lab-Instructions/Images/3.ConnectServicetoAOAI.png)
-    * Type "Y" or simply hit <enter> to accept changes to azure.yaml    
-1. If the **infra** folder exists, run azd provision to provision the newly added resource. **Note**: you see this because have run `azd infra synth`, delete the **infra** folder and then run `azd provision` or run `azd infra synth` again to re-sythesize the infrastructure before running `azd provision`.
-1. Otherwise, select either Yes to provision the changes.
+    * Type "Y" or simply hit <enter> to accept changes to azure.yaml.
+1. If the **infra** folder exists, run azd provision to provision the newly added resource. **Note**: you see this because you have run `azd infra synth`, delete the **infra** folder and then run `azd provision` or run `azd infra synth` again to re-sythesize the infrastructure before running `azd provision`.
+1. Otherwise, select `Yes` to provision the changes.
 
 ## Running the app and redeploy to Azure
 
-We will skip running app locally but similar to previous exercise, if you want to do that, run `azd show gpt-4o` and set the environment variable. Reminder: Line 33 in app.py.
+We will skip running the app locally but similar to the previous exercise, if you want to do that, run `azd show gpt-4o` and set the environment variable. Reminder: Line 33 in app.py.
 
 ![app.py](/Lab-Instructions/Images/3.appcode.png)
 
@@ -120,7 +120,7 @@ Can you use `azd add` and try and see how using a different model affect chat re
 
 **Hints**: when you run `azd add`:
 * Azure AI services model under the AI category is Foundry model. 
-* app.py has hardcoded the model to be Phi-4 for Foundary model so make sure you select Phi-4
+* app.py has hardcoded the model to be Phi-4 for Foundary model so make sure you select Phi-4.
 * Select AIServices for deployment kind.
 * Select 7 for version.
 
