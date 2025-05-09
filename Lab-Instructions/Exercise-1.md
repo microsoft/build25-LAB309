@@ -6,7 +6,10 @@ In this lab module, you learn about working with the Azure Developer CLI (azd), 
 
 You ran the Python app locally in [Getting Started](getting-started.md). In this module, you are going to run `azd init` and `azd up` to deploy the app to Azure Container Apps (ACA).
 
-Time to complete: 10 minutes
+Once you complete this exercise, you will have your application deployed to Azure and ready to add AI features.
+
+> [!NOTE]
+> Time to complete: 10 minutes
 
 ## Working with the Azure Developer CLI (azd)
 
