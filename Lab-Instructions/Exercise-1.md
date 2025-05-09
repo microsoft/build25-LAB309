@@ -15,6 +15,8 @@ Once you complete this exercise, you will have your application deployed to Azur
 
 [Azure Developer CLI (azd)](https://aka.ms/azd) is an open-source command line tool that provides high-level, developer-friendly commands that can help you build, deploy, and manage your application on Azure. 
 
+If you would like to learn more about azd or the app in /src, use the link above or use `ctrl+alt+i` to open Copilot Chat, select `Ask` mode and ask `@azure` your questions.
+
 ## Instructions
 1. In a VS Code terminal, make sure you are in the **/src** directory. 
 1. Run `azd config set alpha.compose on` to enable the feature since azd Compose is an alpha feature.
@@ -61,6 +63,11 @@ resources:
 
 1. Can you tell us if zone redundancy is enabled for the Azure Container app?
 1. In azure.yaml, can you explain how `azd` know to open port 5000 on the Azure Container App?
+1. Try using Copilot Chat in `Agent` mode:
+    - Tell Copilot "I want to deploy the app in \src to Azure as a Container App using azd. Put the azure.yaml and the \infra folder in the \src directory. Always use the latest bicep schema." 
+    - Note: After each turn, you may need to click the `Keep` button so the files are written to disk.
+    - If Copilot wants you to manually run the azd commands to deploy the app, just tell it "why don't you deploy this for me".
+    - If you get an error in the terminal, paste it back into Copilot Chat to get some help.
 
 **Hints**: 
 * azd Compose uses Bicep. All IaC files are generated in memory. To get the Bicep code:
