@@ -1,6 +1,7 @@
 # Exercise 3: Add AI Chat to your application
 
-Add Azure Open AI(AOAI) and connect chat interface in your app to AOAI.
+> [!Goal]
+> Add Azure Open AI (AOAI) chat functionality and a LLM, then connect the chat interface in your app to AOAI.
 
 ## Module overview
 
