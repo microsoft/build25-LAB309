@@ -10,13 +10,13 @@ This workshop is designed to teach you how to build an application with AI Searc
 The lab is 75 minutes. There are two presenters and four proctors, so you will have support throughout the lab.
 
 ## Prerequisite Knowledge 
-We assume you know the basics of creating and editing files in Visual Studio Code. VS Code isn't very different from other code editors, but if you have never used any code editor you might need a little help. If you need help, please raise your hand and a proctor will explain how to compete these tasks. We're here to help!
+We assume you know the basics of creating and editing files in Visual Studio Code. VS Code isn't very different from other code editors, but if you have never used a code editor before, you might need a little help. If you need help, please raise your hand and a proctor will explain how to compete these tasks. We're here to help!
 
 ## Authenticate with Azure
 Navigate to **Resources** in your Skillable VM to locate the user id and password for logging into your Azure account.
 
 ## Get the latest Azure Developer CLI (azd) build
-Before we get started, let's make sure we have the latest version of azd. Run this PowerShell command.
+Before we get started, let's make sure we have the latest version of azd installed. To do this, run this PowerShell command.
 
 ```powershell
 winget upgrade microsoft.azd
@@ -25,7 +25,7 @@ winget upgrade microsoft.azd
 ## Get started with the repo
 In this lab, we will start by cloning the lab repository.
 
-1. From the terminal
+1. In a new terminal window
 
     - Get the LAB content
     ```powershell
@@ -39,7 +39,7 @@ In this lab, we will start by cloning the lab repository.
 
 2. In VS Code
 
-    - Open a new Termnial
+    - Open a new Termnial (`Ctrl+Shift+`)
 
     ```powershell
     # Change to the src directory
@@ -57,7 +57,7 @@ In this lab, we will start by cloning the lab repository.
     
     Note: None of the buttons work, but that's expected at this point. We're going to fix those in the exercises.
 
-    Press `ctrl+c` in the Terminal to stop the app.
+    Press `Ctrl+c` in the Terminal to stop the app.
 
     ![Screenshot](/Lab-Instructions/Images/app-image.png)
 
