@@ -29,7 +29,7 @@ If you would like to learn more about azd or the app in /src, use the link above
 
     What happened?
     * An azure.yaml file is added in the **/src** directory.
-    * A **next-steps.md** is also generated.
+    * A **next-steps.md** file is also generated.
 
 1. Run azd up to deploy the app to Azure.
     * Provide any name when you are asked for an environment name.
@@ -89,4 +89,3 @@ resources:
 
 ## Next
 Now that you've got your application deployed to Azure, head over to [Exercise 2](/Lab-Instructions/Exercise-2.md) to coninue building your application and adding AI functionality.
- 
