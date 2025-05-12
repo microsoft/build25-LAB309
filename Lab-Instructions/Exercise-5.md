@@ -34,4 +34,4 @@ Stay on **Agent mode** and get tailored recommendations on optimizing the cost o
 `Prompt: How do I optimize the cost of my current project?`
 
 ## Congratulations!
-Congratulations. You have now successfully completed the lab. 
+Congratulations on completing the lab! Throughout this exercise, you transformed a basic Python application into a fully functional system deployed on Azure. You integrated AI Search and AI Chat capabilities, monitored your logs, managed storage accounts efficiently, and implemented cost optimization strategies. Well done on mastering these essential skills and enhancing your knowledge in cloud computing and AI technologies!
