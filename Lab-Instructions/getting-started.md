@@ -7,13 +7,20 @@ The instructions on this page are for Microsoft Build 2025 attendees of Lab 309.
 This workshop is designed to teach you how to add AI features, like AI Search and AI Chat, to an existing application while working with the GitHub Copilot for Azure agent for assistance. The lab exercise modules are designed to be completed in order (1, 2, 3, etc.) building up the application progressively through each exercise.
 
 ## Logistics
-The lab is 75 minutes. There are two presenters and four proctors, so you will have support throughout the lab. If you need help, please raise your hand and a proctor will explain how to complete these tasks. We're here to help!
+The lab is 75 minutes. There are two presenters and four proctors, so you will have support throughout the lab. If you need help, please raise your hand and a proctor will explain how to compete these tasks. We're here to help!
 
 ## Prerequisite Knowledge 
-We assume you know the basics of creating and editing files in Visual Studio Code. VS Code isn't very different from other code editors, but if you have never used any code editor you might need a little help. 
+We assume you know the basics of creating and editing files in Visual Studio Code. VS Code isn't very different from other code editors, but if you have never used any code editor you might need a little help.
 
 ## Authenticate with Azure
 Navigate to `Resources` in your Skillable VM to locate the `user id` and `password` for logging into the Azure account.
+
+# Authenticate with azd (Azure Developer CLI)
+Navigate to your terminal app or the terminal pane in VS Code.
+
+```bash
+azd auth login
+```
 
 ## Get the latest Azure Developer CLI (azd) build
 Before we get started, let's make sure we have the latest version of azd. Run this command in PowerShell or Bash.
@@ -68,3 +75,4 @@ You are now ready to start. Please continue with Exercise 1.
    - [Exercise 2](/Lab-Instructions/Exercise-2.md)
    - [Exercise 3](/Lab-Instructions/Exercise-3.md)
    - [Exercise 4](/Lab-Instructions/Exercise-4.md)
+   - [Exercise 5](/Lab-Instructions/Exercise-5.md)
