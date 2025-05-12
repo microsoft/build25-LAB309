@@ -20,6 +20,10 @@ Once you complete this exercise, you will have your application deployed to Azur
 
 If you would like to learn more about azd or the app in /src, use the link above or use `ctrl+alt+i` to open Copilot Chat, select `Ask` mode and ask `@azure` your questions.
 
+<div align="center">
+    <img src="..\img\ask_at_azure.jpg" alt="Ask @azure" style="max-width: 75%; height: auto;">
+</div>
+
 ## Instructions
 1. In a VS Code terminal, make sure you are in the **/src** directory. 
 1. Run `azd config set alpha.compose on` to enable the feature since azd Compose is an alpha feature.
