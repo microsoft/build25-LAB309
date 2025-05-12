@@ -27,7 +27,7 @@ In this lab, we will start by cloning the lab repository.
 
 1. From the terminal
 
-    - Get the LAB content
+    Get the LAB content
     ```powershell
     # Clone the repository
     git clone https://github.com/microsoft/build25-LAB309.git
@@ -39,7 +39,9 @@ In this lab, we will start by cloning the lab repository.
 
 2. In VS Code
 
-    - Open a new Termnial
+    Open a new Termnial (select PowerShell or Bash depending on preference)
+
+    PowerShell
 
     ```powershell
     # Change to the src directory
@@ -53,7 +55,22 @@ In this lab, we will start by cloning the lab repository.
     # Run the app
     python app.py
     ```
-    Congratulations! You now have your app running locally. 
+    
+    Bash
+
+    ```bash
+    # Change to the src directory
+    cd src
+    # Create virtual environment 
+    python -m venv .venv
+    # Activate virtual environment
+    source .venv/bin/activate
+    # Install required Python packages
+    pip install -r requirements.txt
+    # Run the app
+    python app.py
+    ```
+    Congratulations! You now have your app running locally.
     
     Note: None of the buttons work, but that's expected at this point. We're going to fix those in the exercises.
 
@@ -67,4 +84,4 @@ In this lab, we will start by cloning the lab repository.
    - [Exercise 1](/Lab-Instructions/Exercise-1.md)
    - [Exercise 2](/Lab-Instructions/Exercise-2.md)
    - [Exercise 3](/Lab-Instructions/Exercise-3.md)
-   - [Exercise 4](/Lab-Instructions/Exercise-4.md) 
+   - [Exercise 4](/Lab-Instructions/Exercise-4.md)
