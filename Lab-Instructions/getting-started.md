@@ -13,7 +13,11 @@ The lab is 75 minutes. There are two presenters and four proctors, so you will h
 We assume you know the basics of creating and editing files in Visual Studio Code. VS Code isn't very different from other code editors, but if you have never used any code editor you might need a little help. 
 
 ## Authenticate with Azure
-Navigate to `Resources` in your Skillable VM to locate the `user id` and `password` for logging into the Azure account.
+Navigate to `Resources` in your Skillable VM to locate the `username` and `password` for logging into the Azure account.
+
+<div align="center">
+    <img src="..\img\azure_resources.jpg" alt="Azure Resources" style="max-width: 75%; height: auto;">
+</div>
 
 ## Get the latest Azure Developer CLI (azd) build
 Before we get started, let's make sure we have the latest version of azd. Run this command in PowerShell or Bash.
