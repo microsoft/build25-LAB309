@@ -1,4 +1,4 @@
-# Exercise 4: Configure monitoring and diagnostic tools
+# Exercise 4: Check logs for monitoring and manage your storage account
 
 > [!Note]
 > Goal: Configure and optimize your application running on Auzre.
