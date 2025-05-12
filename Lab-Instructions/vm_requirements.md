@@ -1,6 +1,10 @@
 
 # Virtual Machine Requirements
 
+### Link to the VM
+
+[Skillable VM Image](https://labondemand.com/LabProfile/185838)
+
 ### This is a list of dependencies that must be installed on the Lab VMs:
 
 - Git
@@ -24,5 +28,3 @@
 - Permission to create and Azure AI Foundry project (to add AI Search and AI Models)
 - AI quota
 - GitHub Copilot license
-
-[Skillable VM Image](https://labondemand.com/LabProfile/185838)
