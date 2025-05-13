@@ -12,7 +12,7 @@ This repo is to describe and organize the materials for LAB309.
 Abstract
 Join us in this dynamic session where you will learn how to enhance existing applications with AI capabilities with tools like the Azure Developer CLI (azd) and GitHub Copilot for Azure. In this session, learn how to take an existing application from a ready-made open-source template, perform IaC tasks, deploy the application, manage resources, diagnose, and monitor apps using azd CLI and GitHub Copilot for Azure. Elevate your Azure development experience with practical insights and hands-on demonstrations.
 
-#### Instructors:
+#### Instructors (2):
 - Yun Jung Choi
 - Liam Hampton
 
