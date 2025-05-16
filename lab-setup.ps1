@@ -14,10 +14,15 @@ docker desktop start
 Write-Host "Step 4: Cloning lab repository" -ForegroundColor Cyan
 git clone https://github.com/microsoft/build25-LAB309.git
 
-Write-Host "Step 5: Opening project in VS Code" -ForegroundColor Cyan
-code build25-LAB309
+Write-Host "Step 5: Setting up Python environment" -ForegroundColor Cyan
+Set-Location $env:USERPROFILE\build25-LAB309\src
+python -m venv .venv && .\.venv\Scripts\Activate.ps1 && pip install -r requirements.txt
 
-Write-Host "Step 6: Opening lab instructions" -ForegroundColor Cyan
+Write-Host "Step 6: Opening project in VS Code" -ForegroundColor Cyan
+Set-Location $env:USERPROFILE\build25-LAB309
+code .
+
+Write-Host "Step 7: Opening lab instructions" -ForegroundColor Cyan
 Start-Process "https://aka.ms/build25-lab309-repo"
 
 Write-Host "Setup complete! You may now close this window." -ForegroundColor Green
