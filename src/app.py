@@ -2,7 +2,6 @@ import os
 import json
 
 from flask import Flask, render_template, request, jsonify
-from azure.core.credentials import AzureKeyCredential
 from azure.identity import DefaultAzureCredential, AzureDeveloperCliCredential, get_bearer_token_provider
 from azure.search.documents import SearchClient
 from azure.search.documents.indexes import SearchIndexClient
@@ -31,7 +30,7 @@ token_provider: AzureADTokenProvider = get_bearer_token_provider(credential, sco
 
 search_endpoint = os.environ.get('AZURE_AI_SEARCH_ENDPOINT')
 openai_endpoint = os.environ.get('AZURE_OPENAI_ENDPOINT')
-project_connection_string=os.environ.get('AZURE_AI_PROJECT_CONNECTION_STRING')
+project_endpoint=os.environ.get('AZURE_AI_PROJECT_ENDPOINT')
 
 openai_model_name = "gpt-4o"
 foundry_model_name = "Phi-4"
@@ -58,21 +57,21 @@ def get_openai_client():
         )
 
 def get_ai_chat_completion_client():
-    project = AIProjectClient.from_connection_string(conn_str=project_connection_string, credential=credential)
+    project = AIProjectClient(endpoint=project_endpoint, credential=credential)
     return project.inference.get_chat_completions_client()
 
 def get_index_client(hub: bool):
     if not hub:
         return SearchIndexClient(endpoint=search_endpoint, credential=credential)
-    
-    project = AIProjectClient.from_connection_string(conn_str=project_connection_string, credential=credential)
+
+    project = AIProjectClient(endpoint=project_endpoint, credential=credential)
     search_connection = project.connections.get_default(
         connection_type=ConnectionType.AZURE_AI_SEARCH,
         include_credentials=True)
 
     index_client = SearchIndexClient(
-        endpoint=search_connection.endpoint_url,
-        credential=AzureKeyCredential(key=search_connection.key)
+        endpoint=search_connection.target,
+        credential=credential
     )
 
     return index_client
@@ -81,15 +80,15 @@ def get_search_client(hub: bool):
     if not hub:
         return SearchClient(endpoint=search_endpoint, index_name=index_name, credential=credential)
 
-    project = AIProjectClient.from_connection_string(conn_str=project_connection_string, credential=credential)
+    project = AIProjectClient(endpoint=project_endpoint, credential=credential)
     search_connection = project.connections.get_default(
         connection_type=ConnectionType.AZURE_AI_SEARCH,
         include_credentials=True)
 
     search_client = SearchClient(
         index_name=index_name,
-        endpoint=search_connection.endpoint_url,
-        credential=AzureKeyCredential(key=search_connection.key)
+        endpoint=search_connection.target,
+        credential=credential
     )
     return search_client
 

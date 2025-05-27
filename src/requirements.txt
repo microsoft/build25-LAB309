@@ -1,8 +1,8 @@
 azure-ai-inference==1.0.0b9
-azure-ai-projects==1.0.0b10
-azure-identity==1.22.0
-azure-search-documents==11.6.0b11
-Flask==3.1.0
+azure-ai-projects==1.0.0b11
+azure-identity==1.23.0
+azure-search-documents==11.6.0b12
+Flask==3.1.1
 gunicorn==23.0.0
-openai==1.77.0
+openai==1.82.0
 python-dotenv==1.0.1
