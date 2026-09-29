@@ -5,4 +5,4 @@ azure-search-documents==11.6.0b12
 Flask==3.1.1
 gunicorn==23.0.0
 openai==1.82.0
-python-dotenv==1.0.1
+python-dotenv==1.2.2
